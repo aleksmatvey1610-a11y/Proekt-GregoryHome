@@ -9,7 +9,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="splash-active">
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash-photo">
+      <img
+        id="splashBedroomImg"
+        class="splash-bedroom-img"
+        src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1400&q=85&auto=format&fit=crop"
+        alt="Уютная спальня Gregory Home"
+        fetchpriority="high"
+      >
+      <div class="splash-photo-overlay"></div>
+    </div>
+
+    <div class="splash-bg">
+      <div class="splash-blob splash-blob--1"></div>
+      <div class="splash-blob splash-blob--2"></div>
+      <div class="splash-blob splash-blob--3"></div>
+      <div class="splash-grid"></div>
+    </div>
+
+    <div class="splash-inner">
+      <div class="splash-icon">
+        <div class="splash-icon-ring"></div>
+        <div class="splash-icon-ring splash-icon-ring--2"></div>
+        <svg class="splash-icon-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path class="splash-house-roof" d="M32 8L8 28V52C8 54.2 9.8 56 12 56H52C54.2 56 56 54.2 56 52V28L32 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          <path class="splash-house-door" d="M26 56V38C26 35.8 27.8 34 30 34H34C36.2 34 38 35.8 38 38V56" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <circle class="splash-house-window" cx="32" cy="26" r="4" stroke="currentColor" stroke-width="2"/>
+          <path class="splash-house-leaf" d="M48 20C52 16 56 18 56 22C56 26 52 28 48 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <h1 class="splash-title">
+        <span class="splash-word">Gregory</span>
+        <span class="splash-word splash-word--accent">Home</span>
+      </h1>
+      <p class="splash-tagline">Уютная спальня ждёт именно вас</p>
+
+      <div class="splash-preview reveal-splash">
+        <img id="splashPreviewThumb" class="splash-preview-img" src="" alt="" aria-hidden="true">
+        <span>Забронируйте свой дом away from home</span>
+      </div>
+
+      <div class="splash-progress">
+        <div class="splash-progress-track">
+          <div class="splash-progress-bar" id="splashProgress"></div>
+        </div>
+        <span class="splash-progress-text">Загрузка...</span>
+      </div>
+    </div>
+
+    <div class="splash-curtain splash-curtain--left"></div>
+    <div class="splash-curtain splash-curtain--right"></div>
+  </div>
+
   <header class="header">
     <nav class="nav container">
       <a href="#" class="logo">Gregory Home</a>
@@ -27,11 +81,37 @@
       <div class="hero-blob hero-blob--1"></div>
       <div class="hero-blob hero-blob--2"></div>
       <div class="hero-blob hero-blob--3"></div>
-      <div class="container hero-content">
-        <p class="hero-label animate-in">Апартаменты для комфортного отдыха</p>
-        <h1 class="hero-title animate-in">Gregory Home</h1>
-        <p class="hero-subtitle animate-in">Уютные квартиры в центре города. Забронируйте проживание мечты — мы позаботимся об остальном.</p>
-        <a href="#booking" class="btn btn-primary animate-in">Забронировать</a>
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <p class="hero-label animate-in">Апартаменты для комфортного отдыха</p>
+          <h1 class="hero-title animate-in">Gregory Home</h1>
+          <p class="hero-subtitle animate-in">Уютные квартиры в центре города. Забронируйте проживание мечты — мы позаботимся об остальном.</p>
+          <a href="#booking" class="btn btn-primary animate-in">Забронировать</a>
+        </div>
+
+        <figure class="hero-visual animate-in">
+          <div class="hero-image-frame">
+            <img
+              class="hero-image"
+              id="heroBedroomImg"
+              src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=85&auto=format&fit=crop"
+              alt="Уютная спальня Gregory Home — мягкий свет, чистое бельё и атмосфера домашнего тепла"
+              width="600"
+              height="750"
+              loading="eager"
+              fetchpriority="high"
+            >
+            <div class="hero-image-shine"></div>
+            <div class="hero-image-overlay"></div>
+            <span class="hero-image-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              4.9 · Гости в восторге
+            </span>
+          </div>
+          <figcaption class="hero-image-caption">Ваша идеальная спальня уже ждёт</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -67,32 +147,11 @@
           <span class="section-tag">Наши квартиры</span>
           <h2>Выберите идеальный вариант</h2>
         </div>
-        <div class="apartment-grid">
-          <article class="apartment-card reveal">
-            <div class="apartment-image apartment-image--1"></div>
-            <div class="apartment-info">
-              <h3>Студия «Утро»</h3>
-              <p>1 комната · до 2 гостей · 32 м²</p>
-              <span class="apartment-price">от 3 500 ₽ / ночь</span>
-            </div>
-          </article>
-          <article class="apartment-card reveal">
-            <div class="apartment-image apartment-image--2"></div>
-            <div class="apartment-info">
-              <h3>Двухкомнатная «Вечер»</h3>
-              <p>2 комнаты · до 4 гостей · 58 м²</p>
-              <span class="apartment-price">от 5 200 ₽ / ночь</span>
-            </div>
-          </article>
-          <article class="apartment-card reveal">
-            <div class="apartment-image apartment-image--3"></div>
-            <div class="apartment-info">
-              <h3>Лoft «Панорама»</h3>
-              <p>3 комнаты · до 6 гостей · 85 м²</p>
-              <span class="apartment-price">от 7 800 ₽ / ночь</span>
-            </div>
-          </article>
+        <div class="apartments-toolbar reveal">
+          <p class="apartments-hint">Нажмите на карточку, чтобы выбрать квартиру для бронирования</p>
+          <button type="button" class="btn btn-ghost" id="openAdmin">Управление квартирами</button>
         </div>
+        <div class="apartment-grid" id="apartmentGrid"></div>
       </div>
     </section>
 
@@ -137,9 +196,6 @@
               <label for="apartment">Квартира</label>
               <select id="apartment" name="apartment" required>
                 <option value="" disabled selected>Выберите квартиру</option>
-                <option value="studio">Студия «Утро»</option>
-                <option value="two-room">Двухкомнатная «Вечер»</option>
-                <option value="loft">Loft «Панорама»</option>
               </select>
             </div>
 
@@ -171,11 +227,92 @@
   <footer class="footer">
     <div class="container footer-content">
       <p class="footer-logo">Gregory Home</p>
-      <p class="footer-copy">© 2026 Gregory Home. Все права защищены.</p>
+      <p class="footer-copy">© 2026 Gregory Home. Все права защищены. · <button type="button" class="footer-admin-link" id="openAdminFooter">Управление</button></p>
     </div>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="admin-panel" id="adminPanel" hidden>
+    <div class="admin-overlay"></div>
+    <div class="admin-dialog" role="dialog" aria-labelledby="adminTitle">
+      <div class="admin-header">
+        <h2 id="adminTitle">Управление квартирами</h2>
+        <button type="button" class="admin-close" id="closeAdmin" aria-label="Закрыть">&times;</button>
+      </div>
+
+      <div class="admin-body">
+        <section class="admin-section">
+          <h3>Фото заставки (уютная спальня)</h3>
+          <p class="admin-note">Это фото показывается при входе на сайт и в главном блоке.</p>
+          <form id="adminSplashForm" class="admin-form">
+            <div class="form-group">
+              <label for="adminSplashUrl">Ссылка на фото</label>
+              <input type="url" id="adminSplashUrl" placeholder="https://example.com/bedroom.jpg">
+            </div>
+            <div class="form-group">
+              <label for="adminSplashFile">Или загрузите файл (до 15 МБ)</label>
+              <input type="file" id="adminSplashFile" accept="image/*">
+            </div>
+            <img id="adminSplashPreview" class="admin-preview" hidden alt="Превью заставки">
+            <button type="submit" class="btn btn-primary">Сохранить заставку</button>
+          </form>
+        </section>
+
+        <section class="admin-section">
+          <div class="admin-section-head">
+            <h3>Квартиры <span class="admin-counter" id="adminCounter">0 / 20</span></h3>
+          </div>
+          <p class="admin-note">До 20 квартир. У каждой — фото, название и описание.</p>
+
+          <form id="adminApartmentForm" class="admin-form">
+            <input type="hidden" id="adminEditId">
+            <h4 id="adminFormTitle">Добавить квартиру</h4>
+
+            <div class="form-group">
+              <label for="adminAptTitle">Название *</label>
+              <input type="text" id="adminAptTitle" required placeholder="Студия «Утро»">
+            </div>
+
+            <div class="form-group">
+              <label for="adminDescription">Описание *</label>
+              <textarea id="adminDescription" rows="3" required placeholder="Расскажите об атмосфере и удобствах..."></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adminDetails">Характеристики</label>
+                <input type="text" id="adminDetails" placeholder="2 комнаты · до 4 гостей · 58 м²">
+              </div>
+              <div class="form-group">
+                <label for="adminPrice">Цена</label>
+                <input type="text" id="adminPrice" placeholder="от 5 200 ₽ / ночь">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="adminImageUrl">Ссылка на фото *</label>
+              <input type="url" id="adminImageUrl" placeholder="https://example.com/apartment.jpg">
+            </div>
+
+            <div class="form-group">
+              <label for="adminImageFile">Или загрузите файл (до 15 МБ)</label>
+              <input type="file" id="adminImageFile" accept="image/*">
+            </div>
+
+            <img id="adminImagePreview" class="admin-preview" hidden alt="Превью квартиры">
+
+            <div class="admin-form-actions">
+              <button type="submit" class="btn btn-primary" id="adminSubmitBtn">Добавить квартиру</button>
+              <button type="button" class="btn btn-ghost" id="adminCancelEdit" hidden>Отменить редактирование</button>
+            </div>
+          </form>
+
+          <div class="admin-list" id="adminApartmentList"></div>
+        </section>
+      </div>
+    </div>
+  </div>
 
   <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
     <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -194,6 +331,7 @@
     </svg>
   </button>
 
+  <script src="apartments.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

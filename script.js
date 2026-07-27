@@ -1,10 +1,78 @@
 (function () {
+  const splash = document.getElementById('splash');
   const themeToggle = document.getElementById('themeToggle');
   const bookingForm = document.getElementById('bookingForm');
   const toast = document.getElementById('toast');
   const checkinInput = document.getElementById('checkin');
   const checkoutInput = document.getElementById('checkout');
   const header = document.querySelector('.header');
+
+  const revealObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  window.GregoryHomeReveal = revealObserver;
+
+  window.GregoryHomeToast = showToast;
+
+  initSplash();
+
+  if (window.GregoryHomeApartments) {
+    window.GregoryHomeApartments.init();
+    syncSplashPreview();
+  }
+
+  function syncSplashPreview() {
+    const thumb = document.getElementById('splashPreviewThumb');
+    const splashImg = document.getElementById('splashBedroomImg');
+    if (thumb && splashImg && splashImg.src) {
+      thumb.src = splashImg.src;
+    }
+  }
+
+  function initSplash() {
+    if (!splash) return;
+
+    const skipSplash = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const seenSplash = sessionStorage.getItem('gregory-home-splash-seen');
+
+    if (skipSplash || seenSplash) {
+      removeSplash();
+      return;
+    }
+
+    syncSplashPreview();
+
+    const SPLASH_DURATION = 4000;
+    const EXIT_DURATION = 900;
+
+    splash.addEventListener('click', finishSplash);
+
+    setTimeout(finishSplash, SPLASH_DURATION);
+
+    function finishSplash() {
+      if (splash.classList.contains('splash--exit')) return;
+
+      splash.classList.add('splash--exit');
+      sessionStorage.setItem('gregory-home-splash-seen', '1');
+
+      setTimeout(removeSplash, EXIT_DURATION);
+    }
+
+    function removeSplash() {
+      document.body.classList.remove('splash-active');
+      splash.classList.add('splash--hidden');
+      splash.remove();
+    }
+  }
 
   const savedTheme = localStorage.getItem('gregory-home-theme');
   if (savedTheme) {
@@ -24,20 +92,7 @@
     header.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  const revealElements = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  revealElements.forEach(function (el) {
+  document.querySelectorAll('.reveal').forEach(function (el) {
     revealObserver.observe(el);
   });
 
@@ -63,18 +118,19 @@
       return;
     }
 
-    console.log('Заявка на бронирование:', data);
+    const apartments = window.GregoryHomeApartments
+      ? window.GregoryHomeApartments.getApartments()
+      : [];
+    const selected = apartments.find(function (a) {
+      return a.id === data.apartment;
+    });
+
+    console.log('Заявка на бронирование:', Object.assign({}, data, {
+      apartmentTitle: selected ? selected.title : data.apartment,
+    }));
+
     showToast('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
     bookingForm.reset();
-  });
-
-  document.querySelectorAll('.apartment-card').forEach(function (card, index) {
-    card.addEventListener('click', function () {
-      const select = document.getElementById('apartment');
-      const options = ['studio', 'two-room', 'loft'];
-      select.value = options[index];
-      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-    });
   });
 
   function showToast(message) {
