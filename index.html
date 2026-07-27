@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gregory Home — Бронирование квартир</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="logo">Gregory Home</a>
+      <ul class="nav-links">
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#apartments">Квартиры</a></li>
+        <li><a href="#booking">Бронирование</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-content">
+        <p class="hero-label">Апартаменты для комфортного отдыха</p>
+        <h1 class="hero-title">Gregory Home</h1>
+        <p class="hero-subtitle">Уютные квартиры в центре города. Забронируйте проживание мечты — мы позаботимся об остальном.</p>
+        <a href="#booking" class="btn btn-primary">Забронировать</a>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Почему мы</span>
+          <h2>Комфорт, который чувствуется с первой минуты</h2>
+        </div>
+        <div class="features">
+          <article class="feature-card">
+            <div class="feature-icon">🏠</div>
+            <h3>Уютные апартаменты</h3>
+            <p>Продуманные интерьеры, качественная мебель и всё необходимое для проживания.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">📍</div>
+            <h3>Удобное расположение</h3>
+            <p>Рядом транспорт, кафе и достопримечательности — всё в шаговой доступности.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>Индивидуальный подход</h3>
+            <p>Учитываем ваши пожелания — от позднего заезда до особых деталей в номере.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="apartments" class="section apartments">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Наши квартиры</span>
+          <h2>Выберите идеальный вариант</h2>
+        </div>
+        <div class="apartment-grid">
+          <article class="apartment-card">
+            <div class="apartment-image apartment-image--1"></div>
+            <div class="apartment-info">
+              <h3>Студия «Утро»</h3>
+              <p>1 комната · до 2 гостей · 32 м²</p>
+              <span class="apartment-price">от 3 500 ₽ / ночь</span>
+            </div>
+          </article>
+          <article class="apartment-card">
+            <div class="apartment-image apartment-image--2"></div>
+            <div class="apartment-info">
+              <h3>Двухкомнатная «Вечер»</h3>
+              <p>2 комнаты · до 4 гостей · 58 м²</p>
+              <span class="apartment-price">от 5 200 ₽ / ночь</span>
+            </div>
+          </article>
+          <article class="apartment-card">
+            <div class="apartment-image apartment-image--3"></div>
+            <div class="apartment-info">
+              <h3>Лoft «Панорама»</h3>
+              <p>3 комнаты · до 6 гостей · 85 м²</p>
+              <span class="apartment-price">от 7 800 ₽ / ночь</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="section booking">
+      <div class="container">
+        <div class="booking-wrapper">
+          <div class="booking-info">
+            <span class="section-tag">Бронирование</span>
+            <h2>Оформите заявку</h2>
+            <p>Заполните форму — мы свяжемся с вами для подтверждения. Расскажите о своих пожеланиях, и мы постараемся их учесть.</p>
+            <ul class="booking-benefits">
+              <li>Бесплатная отмена за 24 часа</li>
+              <li>Быстрое подтверждение</li>
+              <li>Гибкое время заезда</li>
+            </ul>
+          </div>
+
+          <form class="booking-form" id="bookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="checkin">Дата заезда</label>
+                <input type="date" id="checkin" name="checkin" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout">Дата выезда</label>
+                <input type="date" id="checkout" name="checkout" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="apartment">Квартира</label>
+              <select id="apartment" name="apartment" required>
+                <option value="" disabled selected>Выберите квартиру</option>
+                <option value="studio">Студия «Утро»</option>
+                <option value="two-room">Двухкомнатная «Вечер»</option>
+                <option value="loft">Loft «Панорама»</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="guests">Количество гостей</label>
+              <input type="number" id="guests" name="guests" min="1" max="6" value="1" required>
+            </div>
+
+            <div class="form-group form-group--highlight">
+              <label for="wishes">
+                Ваши пожелания к брони
+                <span class="label-hint">Необязательно</span>
+              </label>
+              <textarea
+                id="wishes"
+                name="wishes"
+                rows="4"
+                placeholder="Например: поздний заезд после 22:00, детская кроватка, тихий этаж, дополнительные полотенца..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Отправить заявку</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="footer-logo">Gregory Home</p>
+      <p class="footer-copy">© 2026 Gregory Home. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/>
+      <line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/>
+      <line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
