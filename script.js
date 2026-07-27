@@ -4,6 +4,7 @@
   const toast = document.getElementById('toast');
   const checkinInput = document.getElementById('checkin');
   const checkoutInput = document.getElementById('checkout');
+  const header = document.querySelector('.header');
 
   const savedTheme = localStorage.getItem('gregory-home-theme');
   if (savedTheme) {
@@ -17,6 +18,27 @@
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('gregory-home-theme', next);
+  });
+
+  window.addEventListener('scroll', function () {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  revealElements.forEach(function (el) {
+    revealObserver.observe(el);
   });
 
   const today = new Date().toISOString().split('T')[0];

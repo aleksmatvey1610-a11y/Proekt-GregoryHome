@@ -24,32 +24,35 @@
   <main>
     <section class="hero">
       <div class="hero-bg"></div>
+      <div class="hero-blob hero-blob--1"></div>
+      <div class="hero-blob hero-blob--2"></div>
+      <div class="hero-blob hero-blob--3"></div>
       <div class="container hero-content">
-        <p class="hero-label">Апартаменты для комфортного отдыха</p>
-        <h1 class="hero-title">Gregory Home</h1>
-        <p class="hero-subtitle">Уютные квартиры в центре города. Забронируйте проживание мечты — мы позаботимся об остальном.</p>
-        <a href="#booking" class="btn btn-primary">Забронировать</a>
+        <p class="hero-label animate-in">Апартаменты для комфортного отдыха</p>
+        <h1 class="hero-title animate-in">Gregory Home</h1>
+        <p class="hero-subtitle animate-in">Уютные квартиры в центре города. Забронируйте проживание мечты — мы позаботимся об остальном.</p>
+        <a href="#booking" class="btn btn-primary animate-in">Забронировать</a>
       </div>
     </section>
 
     <section id="about" class="section about">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="section-tag">Почему мы</span>
           <h2>Комфорт, который чувствуется с первой минуты</h2>
         </div>
         <div class="features">
-          <article class="feature-card">
+          <article class="feature-card reveal">
             <div class="feature-icon">🏠</div>
             <h3>Уютные апартаменты</h3>
             <p>Продуманные интерьеры, качественная мебель и всё необходимое для проживания.</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card reveal">
             <div class="feature-icon">📍</div>
             <h3>Удобное расположение</h3>
             <p>Рядом транспорт, кафе и достопримечательности — всё в шаговой доступности.</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card reveal">
             <div class="feature-icon">✨</div>
             <h3>Индивидуальный подход</h3>
             <p>Учитываем ваши пожелания — от позднего заезда до особых деталей в номере.</p>
@@ -60,12 +63,12 @@
 
     <section id="apartments" class="section apartments">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="section-tag">Наши квартиры</span>
           <h2>Выберите идеальный вариант</h2>
         </div>
         <div class="apartment-grid">
-          <article class="apartment-card">
+          <article class="apartment-card reveal">
             <div class="apartment-image apartment-image--1"></div>
             <div class="apartment-info">
               <h3>Студия «Утро»</h3>
@@ -73,7 +76,7 @@
               <span class="apartment-price">от 3 500 ₽ / ночь</span>
             </div>
           </article>
-          <article class="apartment-card">
+          <article class="apartment-card reveal">
             <div class="apartment-image apartment-image--2"></div>
             <div class="apartment-info">
               <h3>Двухкомнатная «Вечер»</h3>
@@ -81,7 +84,7 @@
               <span class="apartment-price">от 5 200 ₽ / ночь</span>
             </div>
           </article>
-          <article class="apartment-card">
+          <article class="apartment-card reveal">
             <div class="apartment-image apartment-image--3"></div>
             <div class="apartment-info">
               <h3>Лoft «Панорама»</h3>
@@ -96,7 +99,7 @@
     <section id="booking" class="section booking">
       <div class="container">
         <div class="booking-wrapper">
-          <div class="booking-info">
+          <div class="booking-info reveal">
             <span class="section-tag">Бронирование</span>
             <h2>Оформите заявку</h2>
             <p>Заполните форму — мы свяжемся с вами для подтверждения. Расскажите о своих пожеланиях, и мы постараемся их учесть.</p>
@@ -107,7 +110,7 @@
             </ul>
           </div>
 
-          <form class="booking-form" id="bookingForm">
+          <form class="booking-form reveal" id="bookingForm">
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Ваше имя</label>
