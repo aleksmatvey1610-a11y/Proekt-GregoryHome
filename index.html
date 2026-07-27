@@ -251,7 +251,7 @@
               <input type="url" id="adminSplashUrl" placeholder="https://example.com/bedroom.jpg">
             </div>
             <div class="form-group">
-              <label for="adminSplashFile">Или загрузите файл (до 15 МБ)</label>
+              <label for="adminSplashFile">Или загрузите файл (до 10 МБ)</label>
               <input type="file" id="adminSplashFile" accept="image/*">
             </div>
             <img id="adminSplashPreview" class="admin-preview" hidden alt="Превью заставки">
@@ -263,7 +263,7 @@
           <div class="admin-section-head">
             <h3>Квартиры <span class="admin-counter" id="adminCounter">0 / 20</span></h3>
           </div>
-          <p class="admin-note">До 20 квартир. У каждой — фото, название и описание.</p>
+          <p class="admin-note">До 20 квартир. На каждую — до 15 фото (до 10 МБ каждое), название и описание.</p>
 
           <form id="adminApartmentForm" class="admin-form">
             <input type="hidden" id="adminEditId">
@@ -291,16 +291,21 @@
             </div>
 
             <div class="form-group">
-              <label for="adminImageUrl">Ссылка на фото *</label>
-              <input type="url" id="adminImageUrl" placeholder="https://example.com/apartment.jpg">
-            </div>
+              <label>Фотографии квартиры * <span class="admin-photo-counter" id="adminPhotoCounter">0 / 15</span></label>
+              <p class="admin-note">До 15 фото, каждое — не более 10 МБ. Первая фото — обложка карточки.</p>
 
-            <div class="form-group">
-              <label for="adminImageFile">Или загрузите файл (до 15 МБ)</label>
-              <input type="file" id="adminImageFile" accept="image/*">
-            </div>
+              <div class="admin-photos-toolbar">
+                <input type="url" id="adminImageUrl" placeholder="https://example.com/photo.jpg">
+                <button type="button" class="btn btn-ghost" id="adminAddImageUrl">Добавить ссылку</button>
+              </div>
 
-            <img id="adminImagePreview" class="admin-preview" hidden alt="Превью квартиры">
+              <div class="form-group">
+                <label for="adminImageFile">Загрузить файлы</label>
+                <input type="file" id="adminImageFile" accept="image/*" multiple>
+              </div>
+
+              <div class="admin-photos-grid" id="adminPhotosGrid"></div>
+            </div>
 
             <div class="admin-form-actions">
               <button type="submit" class="btn btn-primary" id="adminSubmitBtn">Добавить квартиру</button>
